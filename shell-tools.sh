@@ -28,6 +28,13 @@ install_fish_shell() {
     echo '🥊  To remove fish…'
     echo 'brew uninstall fish'
     echo "🏁  fish 🏁"
+
+    echo "🔫  fish as default shell 🔫"
+    local result=`sudo echo /usr/local/bin/fish >> /etc/shells`
+    echo "💬  Editing /etc/shells result: $result"
+    local result=`chsh -s /usr/local/bin/fish`
+    echo "💬  chsh to fish result: $result"
+    echo "🏁  fish as default shell 🏁"
   fi
 }
 
