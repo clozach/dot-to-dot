@@ -38,5 +38,23 @@ install_fish_shell() {
   fi
 }
 
+link_fish_functions() {
+  echo "🔫  symlinking fish 🔫"
+
+  local f=~/.config/fish
+  if test -h "$f"
+  then
+    echo "Symlink already in place at $f 👍"
+  else
+    local tmp="ln -s $PWD/fish ~/.config/fish"
+    echo "Linking fish config to dot-to-dot: $tmp"
+    eval $tmp
+    echo `ls -al $f`
+  fi
+
+  echo "🏁  symlinking fish 🏁"
+}
+
 install_brew_package_manager
 install_fish_shell
+link_fish_functions

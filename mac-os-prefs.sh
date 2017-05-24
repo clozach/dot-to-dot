@@ -15,6 +15,7 @@ echo "• Remap CAPS LOCK in Preferences > Keyboard > Keyboard Tab -> Modifier K
 echo "  (Remember: this needs to be done once for every keyboard!)"
 echo "• Install Dropbox"
 echo "• Install 1Password"
+echo "• Install SizeUp"
 echo "• Install SourceTree"
 echo "• Install Atom w/packages:"
 echo "  - vim-mode-plus"
