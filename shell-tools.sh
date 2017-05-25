@@ -6,8 +6,13 @@
 
 # PARTIAL CREDIT: https://github.com/kevinelliott/.dotfiles/blob/master/install.sh
 
-command_exists () {
-  type "$1" &> /dev/null ;
+command_exists() {
+  type "$1" &> /dev/null
+}
+
+file_contains_string() {
+  # q for quiet
+  grep -q $2 $1
 }
 
 get_dot_to_dot_root() {
@@ -51,14 +56,28 @@ install_fish_shell() {
     echo '🥊  To remove fish…'
     echo 'brew uninstall fish'
     echo "🏁  fish 🏁"
-
-    echo "🔫  fish as default shell 🔫"
-    local result=`sudo echo /usr/local/bin/fish >> /etc/shells`
-    echo "💬  Editing /etc/shells result: $result"
-    local result=`chsh -s /usr/local/bin/fish`
-    echo "💬  chsh to fish result: $result"
-    echo "🏁  fish as default shell 🏁"
   fi
+}
+
+make_fish_default_shell() {
+  echo "🔫  fish as default shell 🔫"
+  if file_contains_string /etc/shells /usr/local/bin/fish
+  then
+    echo "💬  /etc/shells contains /usr/local/bin/fish. No change needed."
+  else
+    echo "🗯  Adding /usr/local/bin/fish to /etc/shells"
+    local result=`echo /usr/local/bin/fish >> /etc/shells`
+    echo "💬  Editing /etc/shells result: $result"
+  fi
+
+  if [ "$SHELL" == "/usr/local/bin/fish" ]
+  then
+    echo "💬  shell already set to fish"
+  else
+    echo "🗯  changing shell to fish"
+    `chsh -s /usr/local/bin/fish`
+  fi
+  echo "🏁  fish as default shell 🏁"
 }
 
 link_fish_functions() {
@@ -80,4 +99,5 @@ link_fish_functions() {
 
 install_brew_package_manager
 install_fish_shell
+make_fish_default_shell
 link_fish_functions
