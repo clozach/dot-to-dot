@@ -31,6 +31,7 @@ install_brew_package_manager() {
   then
     echo "✅  brew already installed"
   else
+    echo
     echo "🔫  brew 🔫"
     # re: "echo y": https://stackoverflow.com/questions/7642674/how-do-i-script-a-yes-response-for-installing-programs
 
@@ -49,7 +50,8 @@ install_fish_shell() {
   then
     echo "✅  fish already installed"
   else
-    echo "🔫  fish 🔫"
+    echo
+    echo "\n🔫  fish 🔫"
     local result=`brew install fish`
     echo "💬  fish installation resulted in: $result"
     echo
@@ -60,6 +62,7 @@ install_fish_shell() {
 }
 
 make_fish_default_shell() {
+  echo
   echo "🔫  fish as default shell 🔫"
   if file_contains_string /etc/shells /usr/local/bin/fish
   then
@@ -81,7 +84,13 @@ make_fish_default_shell() {
 }
 
 link_fish_functions() {
+  echo
   echo "🔫  symlinking fish 🔫"
+
+  if ! [ -e ~/.config ]
+  then
+    mkdir ~/.config
+  fi
 
   local f=~/.config/fish
   if test -h "$f"
@@ -97,7 +106,9 @@ link_fish_functions() {
   echo "🏁  symlinking fish 🏁"
 }
 
+echo # I like to have white space top & bottom
 install_brew_package_manager
 install_fish_shell
 make_fish_default_shell
 link_fish_functions
+echo # I like to have white space top & bottom

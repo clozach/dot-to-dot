@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo
 echo "🔫  TextEdit 🔫 "
 # http://www.defaults-write.com/plain-text-default-textedit/#more-1349
 defaults write com.apple.TextEdit RichText -int 0
