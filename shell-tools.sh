@@ -1,7 +1,29 @@
 #!/bin/bash
 
+###################
+# GENERAL PURPOSE #
+###################
+
+# PARTIAL CREDIT: https://github.com/kevinelliott/.dotfiles/blob/master/install.sh
+
+command_exists () {
+  type "$1" &> /dev/null ;
+}
+
+get_dot_to_dot_root() {
+  script="`python -c 'import os,sys;print os.path.realpath(sys.argv[1])' "$0"`" #"`readlink -f "$0"`"
+  echo "`dirname "$script"`"
+}
+
+current_working_dir=$(get_dot_to_dot_root)
+
+################
+# INSTALLATION #
+################
+
 install_brew_package_manager() {
-  if hash brew 2>/dev/null; then
+  if command_exists brew
+  then
     echo "✅  brew already installed"
   else
     echo "🔫  brew 🔫"
@@ -11,14 +33,15 @@ install_brew_package_manager() {
     echo "💬  brew installation resulted in: $result"
     echo '🥊  To remove brew…'
     echo 'Uninstall old formulas: brew cleanup'
-    ucho 'Download and run the uninstall script:'
+    echo 'Download and run the uninstall script:'
     echo 'ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"'
     echo "🏁  brew 🏁"
   fi
 }
 
 install_fish_shell() {
-  if hash fish 2>/dev/null; then
+  if command_exists fish
+  then
     echo "✅  fish already installed"
   else
     echo "🔫  fish 🔫"
@@ -46,7 +69,7 @@ link_fish_functions() {
   then
     echo "Symlink already in place at $f 👍"
   else
-    local tmp="ln -s $PWD/fish ~/.config/fish"
+    local tmp="ln -s $current_working_dir/fish ~/.config/fish"
     echo "Linking fish config to dot-to-dot: $tmp"
     eval $tmp
     echo `ls -al $f`
