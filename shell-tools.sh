@@ -26,6 +26,11 @@ current_working_dir=$(get_dot_to_dot_root)
 # INSTALLATION #
 ################
 
+set_basic_git_info() {
+  git config --global user.email clozach@users.noreply.github.com
+  git config --global user.name "Chris Lozac'h"
+}
+
 install_brew_package_manager() {
   if command_exists brew
   then
@@ -107,6 +112,7 @@ link_fish_functions() {
 }
 
 echo # I like to have white space top & bottom
+set_basic_git_info
 install_brew_package_manager
 install_fish_shell
 make_fish_default_shell
