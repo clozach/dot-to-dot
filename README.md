@@ -12,6 +12,6 @@ This installation assumes that you do not yet have your machine "hooked up" to g
     bash <(curl -s https://raw.githubusercontent.com/clozach/dot-to-dot/master/install.sh) key_name ~/Desktop
     ./first-run.sh
 
-### If brew already installed on machine by other user
+### If brew already installed on machine from another macOS user account
 
     ./fix-brew-permissions-on-shared-machine.sh
