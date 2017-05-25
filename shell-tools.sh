@@ -111,10 +111,39 @@ link_fish_functions() {
   echo "🏁  symlinking fish 🏁"
 }
 
+install_fonts_for_bobthefish() {
+  echo
+  echo "🔫  Install fonts for bobthefish 🔫"
+  local bold_italic=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20Bold%20Italic%20for%20Powerline.ttf?raw=true
+  local bold=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20Bold%20for%20Powerline.ttf?raw=true
+  local italic=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20Italic%20for%20Powerline.ttf?raw=true
+  local standard=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20for%20Powerline.ttf?raw=true
+
+  open $bold_italic
+  open $bold
+  open $italic
+  open $standard
+
+  # curl $bold_italic
+  # curl $bold
+  # curl $italic
+  # curl $standard
+
+  echo "Time to double-click on downloaded Cousine fonts needed for a clean bobthefish shell prompt."
+  echo "Press any key when ready…"
+  read -n 1
+  open ~/Downloads/
+  echo "⚠️ Now open Terminal prefs (maybe iTerm some day), set theme to Homebrew and font to Cousine for Powerline."
+  echo "Press any key when ready…"
+  read -n 1
+  echo "🏁  Install fonts for bobthefish 🏁"
+}
+
 echo # I like to have white space top & bottom
 set_basic_git_info
 install_brew_package_manager
 install_fish_shell
 make_fish_default_shell
 link_fish_functions
+install_fonts_for_bobthefish
 echo # I like to have white space top & bottom
