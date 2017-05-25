@@ -31,7 +31,7 @@ copy_key_to_clipboard() {
   cat "$ssh_file.pub" | pbcopy
   echo "Public 🗝  copied to clipboard. Paste into a new SSH in GitHub Settings. Press any key when ready…"
   read -n 1
-  open "http://github.com/"
+  open "https://github.com/settings/keys"
 }
 
 clone_dot_to_dot() {
