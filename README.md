@@ -18,7 +18,7 @@ This installation assumes that you do not yet have your machine "hooked up" to g
     ./mac-os-prefs.sh
     sudo ./shell-tools.sh
 
-> Note: The `sudo` is necessary for the `shell-tools` script to edit /etc/shells
+> Note: The `sudo` is necessary for the `shell-tools` script to edit /etc/shells. Also, I found I had to run this manually because it asks for a password: `chsh -s /usr/local/bin/fish`. Sigh.
 
 Make sure to read the output and follow the manual installation instructions for all the stuff I haven't figured out how to automate, yet. 🙄
 
