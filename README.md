@@ -28,4 +28,4 @@ Make sure to read the output and follow the manual installation instructions for
 
 ## Room For Improvement
 
-* The first-run script is supposed to call all the others automatically, but that didn't work last time I tried, hence the "Then…" section above.
+* The `install` script is supposed to call the others automatically, but that didn't work last time I tried, hence the "Then…" section above.
