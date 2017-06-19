@@ -25,3 +25,7 @@ Make sure to read the output and follow the manual installation instructions for
 ### If brew already installed on machine from another macOS user account
 
     ./fix-brew-permissions-on-shared-machine.sh
+
+## Room For Improvement
+
+* The first-run script is supposed to call all the others automatically, but that didn't work last time I tried, hence the "Then…" section above.
