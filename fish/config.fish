@@ -50,3 +50,8 @@ egrep "^export " ~/.bash_profile | while read e
         end
     end
 end
+
+# Fix rbenv, per https://github.com/rbenv/rbenv/issues/195
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+rbenv rehash >/dev/null ^&1
