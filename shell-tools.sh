@@ -38,9 +38,10 @@ install_brew_package_manager() {
   else
     echo
     echo "🔫  brew 🔫"
-    # re: "echo y": https://stackoverflow.com/questions/7642674/how-do-i-script-a-yes-response-for-installing-programs
 
+    # re: "echo y": https://stackoverflow.com/questions/7642674/how-do-i-script-a-yes-response-for-installing-programs
     local result=`echo y | /usr/bin/ruby -e "$(curl -fSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
     echo "💬  brew installation resulted in: $result"
     echo '🥊  To remove brew…'
     echo 'Uninstall old formulas: brew cleanup'
@@ -123,11 +124,6 @@ install_fonts_for_bobthefish() {
   open $bold
   open $italic
   open $standard
-
-  # curl $bold_italic
-  # curl $bold
-  # curl $italic
-  # curl $standard
 
   echo "Time to double-click on downloaded Cousine fonts needed for a clean bobthefish shell prompt."
   echo "Press any key when ready…"
