@@ -114,16 +114,18 @@ link_fish_functions() {
 
 install_fonts_for_bobthefish() {
   echo
-  echo "🔫  Install fonts for bobthefish 🔫"
+  echo "🔫  Install fonts for bobthefish & elm 🔫"
   local bold_italic=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20Bold%20Italic%20for%20Powerline.ttf?raw=true
   local bold=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20Bold%20for%20Powerline.ttf?raw=true
   local italic=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20Italic%20for%20Powerline.ttf?raw=true
   local standard=https://github.com/powerline/fonts/blob/master/Cousine/Cousine%20for%20Powerline.ttf?raw=true
+  local fira=https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip
 
   open $bold_italic
   open $bold
   open $italic
   open $standard
+  open $fira
 
   echo "Time to double-click on downloaded Cousine fonts needed for a clean bobthefish shell prompt."
   echo "Press any key when ready…"
