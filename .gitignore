@@ -1,2 +1,10 @@
 fishd.*
 fzf_key_bindings.fish
+fish/functions/__z.fish
+fish/functions/__z_add.fish
+fish/functions/__z_complete.fish
+fish/functions/__zo.fish
+fish/functions/fisher.fish
+fish/functions/getopts.fish
+fish/functions/z.awk
+fish/functions/zadd.awk
