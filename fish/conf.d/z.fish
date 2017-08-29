@@ -1,0 +1,1 @@
+/Users/clozach/.config/fisherman/z/conf.d/z.fish
