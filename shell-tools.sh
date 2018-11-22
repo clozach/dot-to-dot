@@ -74,9 +74,10 @@ make_fish_default_shell() {
   then
     echo "💬  /etc/shells contains /usr/local/bin/fish. No change needed."
   else
-    echo "🗯  Adding /usr/local/bin/fish to /etc/shells"
-    local result=`echo /usr/local/bin/fish >> /etc/shells`
-    echo "💬  Editing /etc/shells result: $result"
+    echo "🗯  Add /usr/local/bin/fish to /etc/shells"
+    echo "    (Just paste it at the end…)"
+    echo "/usr/local/bin/fish" | pbcopy
+    sudo vim /etc/shells
   fi
 
   if [ "$SHELL" == "/usr/local/bin/fish" ]

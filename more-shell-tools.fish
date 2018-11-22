@@ -11,4 +11,4 @@ if not file_exists ~/.bash_profile
     echo ".bash_profile not found: creating empty .bash_profile."
     touch ~/.bash_profile
 end
-fisher z
+fisher add jethrokuan/z
