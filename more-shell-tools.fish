@@ -12,3 +12,8 @@ if not file_exists ~/.bash_profile
     touch ~/.bash_profile
 end
 fisher add jethrokuan/z
+
+echo
+echo "🔫 Install yarn & node 🔫"
+brew install yarn
+echo "🏁 Install yarn & node 🏁"
