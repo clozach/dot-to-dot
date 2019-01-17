@@ -138,6 +138,14 @@ install_fonts_for_bobthefish() {
   echo "🏁  Install fonts for bobthefish 🏁"
 }
 
+link_dot_emacs() {
+  echo
+  echo "🔫 Link .emacs (Emacs init file) 🔫"
+  local tmp="ln -s $current_working_dir/.emacs ~/.emacs"
+  echo "Linking .emacs to dot-to-dot: $tmp"
+  eval $tmp
+}
+
 echo # I like to have white space top & bottom
 set_basic_git_info
 install_brew_package_manager
@@ -145,4 +153,5 @@ install_fish_shell
 make_fish_default_shell
 link_fish_functions
 install_fonts_for_bobthefish
+link_dot_emacs
 echo # I like to have white space top & bottom
