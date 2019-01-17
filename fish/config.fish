@@ -55,3 +55,13 @@ end
 set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
+
+# ANTLR4 SUPPORT
+alias antlr4='java -jar /usr/local/lib/antlr-4.7.1-complete.jar'
+alias antlr=antlr4
+alias grun='java org.antlr.v4.gui.TestRig'
+export CLASSPATH=".:/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH"
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /Users/c/git/Ouroboros/graphcli/node_modules/tabtab/.completions/electron-forge.fish ]; and . /Users/c/git/Ouroboros/graphcli/node_modules/tabtab/.completions/electron-forge.fish

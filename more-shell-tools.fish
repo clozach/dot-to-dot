@@ -17,3 +17,8 @@ echo
 echo "🔫 Install yarn & node 🔫"
 brew install yarn
 echo "🏁 Install yarn & node 🏁"
+
+echo
+echo "🔫 Install java (e.g., for use w/Antlr4) 🔫"
+brew cask install java
+echo "🏁 Install java 🏁"
