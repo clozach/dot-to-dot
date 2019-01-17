@@ -65,3 +65,8 @@ export CLASSPATH=".:/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH"
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f /Users/c/git/Ouroboros/graphcli/node_modules/tabtab/.completions/electron-forge.fish ]; and . /Users/c/git/Ouroboros/graphcli/node_modules/tabtab/.completions/electron-forge.fish
+
+# Auto-load rbenv
+# (from following instructions after `rbenv init fish`:
+#  https://github.com/rbenv/rbenv/issues/869)
+status --is-interactive; and source (rbenv init -|psub)
