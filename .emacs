@@ -54,3 +54,4 @@ There are two things you can do about this warning:
 (require 'helm-config)
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
+(setq org-log-done 'time) ;; Automatic timestamps (see https://orgmode.org/org.html#Closing-items
