@@ -56,3 +56,8 @@ There are two things you can do about this warning:
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq org-log-done 'time) ;; Automatic timestamps (see https://orgmode.org/org.html#Closing-items
 (setq org-agenda-files '("~/org")) ;; Include .org files in ~/org to the agenda
+;; Modify agenda to "next" seven days (starting yesterday)n
+;;    https://emacs.stackexchange.com/questions/12517/how-do-i-make-the-timespan-shown-by-org-agenda-start-yesterday
+(setq org-agenda-start-day "-1d")
+(setq org-agenda-span 7)
+(setq org-agenda-start-on-weekday nil)
