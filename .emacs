@@ -36,7 +36,7 @@ There are two things you can do about this warning:
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (helm))))
+ '(package-selected-packages (quote (org-bullets avy helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -65,3 +65,10 @@ There are two things you can do about this warning:
 ;; Avy (jump mode) key binding(s)
 ;; https://github.com/abo-abo/avy
 (global-set-key (kbd "C-;") 'avy-goto-word-0)
+
+;; Fancy ⚫ Bullets
+;; https://zhangda.wordpress.com/2016/02/15/configurations-for-beautifying-emacs-org-mode/
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-bullets-bullet-list '("○" "☉" "◎" "◉" "○" "◌" "◎" "●" "◦" "◯" "⚪" "⚫" "⚬" "❍" "￮" "⊙" "⊚" "⊛" "∙" "∘"** 
+))
