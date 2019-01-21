@@ -72,3 +72,7 @@ There are two things you can do about this warning:
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (setq org-bullets-bullet-list '("○" "☉" "◎" "◉" "○" "◌" "◎" "●" "◦" "◯" "⚪" "⚫" "⚬" "❍" "￮" "⊙" "⊚" "⊛" "∙" "∘"** 
 ))
+
+;; Fancy ellipsis
+;; http://endlessparentheses.com/changing-the-org-mode-ellipsis.html
+(setq org-ellipsis " ⇥")
