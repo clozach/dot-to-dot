@@ -61,3 +61,7 @@ There are two things you can do about this warning:
 (setq org-agenda-start-day "-1d")
 (setq org-agenda-span 7)
 (setq org-agenda-start-on-weekday nil)
+
+;; Avy (jump mode) key binding(s)
+;; https://github.com/abo-abo/avy
+(global-set-key (kbd "C-;") 'avy-goto-word-0)
