@@ -55,3 +55,4 @@ There are two things you can do about this warning:
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq org-log-done 'time) ;; Automatic timestamps (see https://orgmode.org/org.html#Closing-items
+(setq org-agenda-files '("~/org")) ;; Include .org files in ~/org to the agenda
