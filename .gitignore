@@ -8,3 +8,4 @@ fish/functions/fisher.fish
 fish/functions/getopts.fish
 fish/functions/z.awk
 fish/functions/zadd.awk
+*#.emacs*
