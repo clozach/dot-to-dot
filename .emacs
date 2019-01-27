@@ -97,3 +97,8 @@ There are two things you can do about this warning:
 ;; https://thraxys.wordpress.com/2016/01/14/pimp-up-your-org-agenda/
 (setq org-todo-keywords
       '((sequence "TODO" "IN PROGRESS" "WAITING FOR" "|" "DONE" "DELETED")))
+
+;; Save minibuffer history between emacs invocations
+;;   in order to access recently-opened files w/arrow keys
+;; https://stackoverflow.com/a/16147575/230615
+(savehist-mode 1)
