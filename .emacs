@@ -92,3 +92,8 @@ There are two things you can do about this warning:
 (prefer-coding-system 'utf-8)
 (when (display-graphic-p)
    (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
+
+;; Add TODO keywords
+;; https://thraxys.wordpress.com/2016/01/14/pimp-up-your-org-agenda/
+(setq org-todo-keywords
+      '((sequence "TODO" "IN PROGRESS" "WAITING FOR" "|" "DONE" "DELETED")))
