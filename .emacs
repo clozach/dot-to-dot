@@ -81,3 +81,14 @@ There are two things you can do about this warning:
 ;; https://superuser.com/a/1328642/44624
 (when (version<= "26.0.50" emacs-version )
   (global-display-line-numbers-mode))
+
+;; UTF-8 IN EMACS: EVERYWHERE, FOREVER
+;; https://thraxys.wordpress.com/2016/01/13/utf-8-in-emacs-everywhere-forever/
+;; (Honestly, not entirely sure how this changes behavior, but it seems like sound advice, so…leap of faith.)
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(when (display-graphic-p)
+   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
