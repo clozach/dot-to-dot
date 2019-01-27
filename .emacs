@@ -76,3 +76,8 @@ There are two things you can do about this warning:
 ;; Fancy ellipsis
 ;; http://endlessparentheses.com/changing-the-org-mode-ellipsis.html
 (setq org-ellipsis " ⇥")
+
+;; Show line numbers
+;; https://superuser.com/a/1328642/44624
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
