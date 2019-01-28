@@ -1,3 +1,5 @@
+(setq debug-on-error t)
+
 ;; MELPA INITIALIZATION
 ;; https://melpa.org/#/getting-started
 (require 'package)
@@ -102,3 +104,22 @@ There are two things you can do about this warning:
 ;;   in order to access recently-opened files w/arrow keys
 ;; https://stackoverflow.com/a/16147575/230615
 (savehist-mode 1)
+
+;; Enable Narrowing
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Narrowing.html
+(put 'narrow-to-page 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+
+;; Default regex builder syntax to allow single backslashes
+;; https://www.masteringemacs.org/article/re-builder-interactive-regexp-builder
+(require 're-builder)
+(setq reb-re-syntax 'string)
+
+;; Display load time of this file in order to detect .emacs bog-down
+;; http://cheat.errtheblog.com/s/emacs_tips
+(require 'cl)
+(message "Emacs loaded in %fs\n"
+         (* 0.000001 (apply #'-
+                            (mapcar (lambda (time)
+                                      (+ (* 1000000 (+ (* 65536 (first time)) (second time))) (third time)))
+                                    (list (current-time) before-init-time)))))
