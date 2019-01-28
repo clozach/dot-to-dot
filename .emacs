@@ -124,3 +124,18 @@ There are two things you can do about this warning:
                             (mapcar (lambda (time)
                                       (+ (* 1000000 (+ (* 65536 (first time)) (second time))) (third time)))
                                     (list (current-time) before-init-time)))))
+
+;; Put autosave files (ie #foo#) in one place, *not*
+;; scattered all over the file system!
+;; http://cheat.errtheblog.com/s/emacs_tips
+(defvar autosave-dir
+ (concat "/tmp/emacs_autosaves/" (user-login-name) "/"))
+(make-directory autosave-dir t)
+(setq auto-save-file-name-transforms `(("\\(?:[^/]*/\\)*\\(.*\\)" ,(concat autosave-dir "\\1") t)))
+
+;; Put backup files (ie foo~) in one place too. (The backup-directory-alist
+;; list contains regexp=>directory mappings; filenames matching a regexp are
+;; backed up in the corresponding directory. Emacs will mkdir it if necessary.)
+;; http://cheat.errtheblog.com/s/emacs_tips
+(defvar backup-dir (concat "/tmp/emacs_backups/" (user-login-name) "/"))
+(setq backup-directory-alist (list (cons "." backup-dir)))
