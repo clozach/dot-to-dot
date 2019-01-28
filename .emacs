@@ -66,7 +66,8 @@ There are two things you can do about this warning:
 
 ;; Avy (jump mode) key binding(s)
 ;; https://github.com/abo-abo/avy
-(global-set-key (kbd "C-;") 'avy-goto-word-0)
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
+
 
 ;; Fancy ⚫ Bullets
 ;; https://zhangda.wordpress.com/2016/02/15/configurations-for-beautifying-emacs-org-mode/
