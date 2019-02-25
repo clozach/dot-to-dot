@@ -38,7 +38,8 @@ There are two things you can do about this warning:
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
  '(custom-enabled-themes (quote (wheatgrass)))
- '(package-selected-packages (quote (org-bullets avy helm))))
+ '(org-agenda-files nil)
+ '(package-selected-packages (quote (unfill org-bullets avy helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -57,12 +58,22 @@ There are two things you can do about this warning:
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq org-log-done 'time) ;; Automatic timestamps (see https://orgmode.org/org.html#Closing-items
-(setq org-agenda-files '("~/org")) ;; Include .org files in ~/org to the agenda
+(setq org-agenda-files '("~/Dropbox/org/")) ;; Include .org files in ~/org to the agenda
 ;; Modify agenda to "next" seven days (starting yesterday)n
 ;;    https://emacs.stackexchange.com/questions/12517/how-do-i-make-the-timespan-shown-by-org-agenda-start-yesterday
 (setq org-agenda-start-day "-1d")
 (setq org-agenda-span 7)
 (setq org-agenda-start-on-weekday nil)
+
+;; org-mode key bindings
+;; https://orgmode.org/manual/Activation.html#Activation
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
+;; org-mode Setting Up Capture
+;; https://orgmode.org/manual/Setting-up-capture.html#Setting-up-capture
+(setq org-default-notes-file (concat org-directory "/notes.org"))
 
 ;; Avy (jump mode) key binding(s)
 ;; https://github.com/abo-abo/avy
@@ -73,7 +84,7 @@ There are two things you can do about this warning:
 ;; https://zhangda.wordpress.com/2016/02/15/configurations-for-beautifying-emacs-org-mode/
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(setq org-bullets-bullet-list '("○" "☉" "◎" "◉" "○" "◌" "◎" "●" "◦" "◯" "⚪" "⚫" "⚬" "❍" "￮" "⊙" "⊚" "⊛" "∙" "∘"** 
+(setq org-bullets-bullet-list '("○" "☉" "◎" "◉" "○" "◌" "◎" "●" "◦" "◯" "⚪" "⚫" "⚬" "❍" "￮" "⊙" "⊚" "⊛" "∙" "∘"**
 ))
 
 ;; Fancy ellipsis
