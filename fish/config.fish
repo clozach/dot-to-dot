@@ -62,6 +62,9 @@ alias antlr=antlr4
 alias grun='java org.antlr.v4.gui.TestRig'
 export CLASSPATH=".:/usr/local/lib/antlr-4.7.1-complete.jar:$CLASSPATH"
 
+# Spacemacs
+alias emacs="env HOME=$HOME/spacemacs emacs"
+
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f /Users/c/git/Ouroboros/graphcli/node_modules/tabtab/.completions/electron-forge.fish ]; and . /Users/c/git/Ouroboros/graphcli/node_modules/tabtab/.completions/electron-forge.fish
