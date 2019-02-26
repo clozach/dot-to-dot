@@ -47,7 +47,7 @@ values."
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
+     spell-checking ;; Also required installing ispell: brew install ispell
      ;; syntax-checking
      ;; version-control
      )
