@@ -310,6 +310,45 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; Since I'm just learning this stuff, I'm gonna put some useless demo garbage in here to start out.
+
+  ;; How to write a function
+  (defun say-hello ()
+    "Says hello."
+    (interactive)
+    (message "Hello, World!"))
+
+  ;; Org Mode hack for use when you forgot to mark an "org-habit" D O N E on the day of
+  ;; See https://joelmccracken.github.io/entries/emacs-hack-set-todo-done-yesterday/
+  (defun org-todo-toggle-yesterday ()
+    ;; this function is interactive, meaning a "command" that we call
+    ;; as an emacs user (allows us to do "M-x org-todo-toggle-yesterday")
+    (interactive)
+    
+    (let ((time-in-question (decode-time))) 
+      ;; time-in-question is the current time, decoded into convenient fields
+
+      ;; decrease the field by one which represents the day -- make it "yesterday"
+      (decf (nth 3 time-in-question))
+
+      ;; now, re-encode that time
+      (setq time-in-question (apply 'encode-time time-in-question))
+      
+      (flet ((current-time () time-in-question))
+        ;; flet temporarily binds current-time to this version, which
+        ;; returns the time from yesterday 
+        
+        (org-todo)
+        ;; toggles the todo heading
+        )))
+
+  ;; Setting global keyboard shortcuts
+  ;; https://joelmccracken.github.io/entries/emacs-lisp-for-hackers-keys/
+  (global-set-key (kbd "C-c h")
+                  (lambda ()
+                    (interactive)
+                    (say-hello)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
