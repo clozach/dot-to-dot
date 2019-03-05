@@ -311,6 +311,11 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; Dired Customizations
+  ;;;; Allow Dired to directly modify file permissions when
+  ;;;; in Editable mode. C-x C-q to enter Editable Dired mode.
+  (setq wdired-allow-to-change-permissions t)
+
   ;; Since I'm just learning this stuff, I'm gonna put some useless demo garbage in here to start out.
 
   ;; How to write a function
