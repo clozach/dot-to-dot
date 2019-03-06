@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     rust
      shell-scripts ;; Added automatically when attempting to open .fish files…nice!
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -366,6 +367,12 @@ you should place your code here."
  '(package-selected-packages
    (quote
     (
+      toml-mode
+      racer
+      pos-tip
+      cargo
+      markdown-mode
+      rust-mode
       insert-shebang
       fish-mode
       flyspell-correct-helm
@@ -477,7 +484,7 @@ you should place your code here."
       helm-core
       popup
       async
-)))
+    )))
  '(send-mail-function (quote mailclient-send-it)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
