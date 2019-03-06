@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     swift
      html
      rust
      shell-scripts ;; Added automatically when attempting to open .fish files…nice!
@@ -368,6 +369,7 @@ you should place your code here."
  '(package-selected-packages
    (quote
     (
+      swift-mode
       web-mode
       tagedit
       slim-mode
