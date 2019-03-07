@@ -319,6 +319,11 @@ you should place your code here."
   ;;;; in Editable mode. C-x C-q to enter Editable Dired mode.
   (setq wdired-allow-to-change-permissions t)
 
+  ;;;; Make script files executable automatically
+  ;;;;
+  ;;;; https://www.masteringemacs.org/article/script-files-executable-automatically
+  (add-hook 'after-save-hook
+            'executable-make-buffer-file-executable-if-script-p)
   ;; Since I'm just learning this stuff, I'm gonna put some useless demo garbage in here to start out.
 
   ;; How to write a function
