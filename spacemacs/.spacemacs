@@ -319,6 +319,10 @@ you should place your code here."
   ;;;; in Editable mode. C-x C-q to enter Editable Dired mode.
   (setq wdired-allow-to-change-permissions t)
 
+  ;; NeoTree
+  ;;;; Because the yellow folders are fugly…
+  (setq neo-theme 'ascii)
+
   ;;;; Make script files executable automatically
   ;;;;
   ;;;; https://www.masteringemacs.org/article/script-files-executable-automatically
