@@ -46,7 +46,7 @@ values."
      emacs-lisp
      ;; git
      ;; markdown
-     ;; org
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -374,6 +374,17 @@ you should place your code here."
  '(package-selected-packages
    (quote
     (
+      org-projectile
+      org-category-capture
+      org-present
+      org-pomodoro
+      alert
+      log4e
+      gntp
+      org-mime
+      org-download
+      htmlize
+      gnuplot
       swift-mode
       web-mode
       tagedit
