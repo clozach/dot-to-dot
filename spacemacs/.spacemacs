@@ -41,7 +41,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -323,6 +323,10 @@ you should place your code here."
   ;;;; Because the yellow folders are fugly…
   (setq neo-theme 'ascii)
 
+  ;; Auto-Complete Layer
+  ;;;; Universally enable `company` mode
+  (global-company-mode)
+
   ;;;; Make script files executable automatically
   ;;;;
   ;;;; https://www.masteringemacs.org/article/script-files-executable-automatically
@@ -378,6 +382,18 @@ you should place your code here."
  '(package-selected-packages
    (quote
     (
+      helm-company
+      helm-c-yasnippet
+      fuzzy
+      company-web
+      web-completion-data
+      company-statistics
+      company-shell
+      company
+      auto-yasnippet
+      yasnippet
+      ac-ispell
+      auto-complete
       org-projectile
       org-category-capture
       org-present
