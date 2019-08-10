@@ -47,45 +47,25 @@ function para --description 'A Command Line Interface in support of Tiago Forteâ
       ls
     end
 
+    function pathForFlag --argument-names destflag baseurl
+        set -l flags p a r b
+        set -l dirs 1-Projects 2-Areas-of-Responsibility 3-Resources 4-Archives
+
+        if set -l index (contains -i -- $destflag $flags)
+            # ðŸ‘† `set` won't modify $status, so this succeeds if `contains` succeeds
+            echo $baseurl/$dirs[$index]
+        else
+            return 1
+        end
+    end
+
+    set -l target (pathForFlag $dest $base)
+
     if test $pathCount -gt 0
-        if test "$dest" = "p"
-            mv $paths $base/1-Projects/
-            return 0
-        end
-
-        if test "$dest" = "a"
-            mv $paths $base/2-Areas-of-Responsibility/
-            return 0
-        end
-
-        if test "$dest" = "r"
-            mv $paths $base/3-Resources/
-            return 0
-        end
-
-        if test "$dest" = "b"
-            mv $paths $base/4-Archives/
-            return 0
-        end
-    else
-        if test "$dest" = "p"
-            cd $base/1-Projects/
-            return 0
-        end
-
-        if test "$dest" = "a"
-            cd $base/2-Areas-of-Responsibility/
-            return 0
-        end
-
-        if test "$dest" = "r"
-            cd $base/3-Resources/
-            return 0
-        end
-
-        if test "$dest" = "b"
-            cd $base/4-Archives/
-            return 0
-        end
+        # Got something like `para b somefile.txt somedir`, so move `somefile.txt` and `somedir`.
+        mv $paths $target
+        return 0
+    else # Got something like `para b`
+        cd $target
     end
 end
