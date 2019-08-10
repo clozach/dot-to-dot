@@ -77,6 +77,20 @@ function para --description 'A Command Line Interface in support of Tiago Forteâ
         end
     end
 
+    if test "$dest" = "l"
+        echo
+        for f in p a r b
+            echo "-----------------------------"
+            echo ðŸ—“: (pathForFlag $f $base)
+            echo "-----------------------------"
+            # -G: Colorizes output, -p: post-fixes dirs with `/`
+            ls -Gp (pathForFlag $f $base)
+            echo
+        end
+        echo
+      return 0
+    end
+
     set -l target (pathForFlag $dest $base)
 
     if test $pathCount -gt 0
