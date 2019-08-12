@@ -1,5 +1,6 @@
 fishd.*
 fzf_key_bindings.fish
+fish/fish_variables
 fish/functions/__z.fish
 fish/functions/__z_add.fish
 fish/functions/__z_complete.fish
