@@ -73,3 +73,9 @@ alias emacs="env HOME=$HOME/spacemacs emacs"
 # (from following instructions after `rbenv init fish`:
 #  https://github.com/rbenv/rbenv/issues/869)
 status --is-interactive; and source (rbenv init -|psub)
+
+# Start new sessions in ~/Documents
+# https://superuser.com/questions/193513/how-can-i-change-the-startup-directory-of-my-terminal-on-os-x
+cd /Users/c/Documents
+clear
+ls
