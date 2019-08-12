@@ -26,31 +26,31 @@ function para --description 'A Command Line Interface in support of Tiago Forte�
     end
 
     if test "$dest" = "root"
-      # Usually this is just handled by `init`, but you can use `para root` to swap between PARA dirs if you have the need…which I only do because of testing this CLI.
-      set --universal PARA_ROOT $PWD
-      return 0
+        # Usually this is just handled by `init`, but you can use `para root` to swap between PARA dirs if you have the need…which I only do because of testing this CLI.
+        set --universal PARA_ROOT $PWD
+        return 0
     end
 
     if test "$dest" = "init"
-      mkdir 1-Projects
-      mkdir 2-Areas-of-Responsibility
-      mkdir 3-Resources
-      mkdir 4-Archives
-      set --universal PARA_ROOT $PWD
-      echo "You're all set to use P.A.R.A! See output of `ls` 👇."
-      ls
-      return 0
+        mkdir 1-Projects
+        mkdir 2-Areas-of-Responsibility
+        mkdir 3-Resources
+        mkdir 4-Archives
+        set --universal PARA_ROOT $PWD
+        echo "You're all set to use P.A.R.A! See output of `ls` 👇."
+        ls
+        return 0
     end
 
     # Handle `para <flag> .`, which moves the dir at $PWD to the target P.A.R.A. dir.
     if test "$paths" = "."
-      set paths $PWD
-      set final_pwd (basename $PWD)
+        set paths $PWD
+        set final_pwd (basename $PWD)
     end
 
     # Make sure we're in a valid PARA directory before actually responding to commands
     if set -q PARA_ROOT
-      set base $PARA_ROOT
+        set base $PARA_ROOT
     else if __is_valid_para_directory $PWD
         set base $PWD
     else if __is_valid_para_directory (dirname $PWD)
@@ -88,7 +88,7 @@ function para --description 'A Command Line Interface in support of Tiago Forte�
             echo
         end
         echo
-      return 0
+        return 0
     end
 
     set -l target (pathForFlag $dest $base)
