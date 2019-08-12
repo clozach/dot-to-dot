@@ -42,12 +42,6 @@ function para --description 'A Command Line Interface in support of Tiago Forteâ
         return 0
     end
 
-    # Handle `para <flag> .`, which moves the dir at $PWD to the target P.A.R.A. dir.
-    if test "$paths" = "."
-        set paths $PWD
-        set final_pwd (basename $PWD)
-    end
-
     # Make sure we're in a valid PARA directory before actually responding to commands
     if set -q PARA_ROOT
         set base $PARA_ROOT
@@ -93,13 +87,23 @@ function para --description 'A Command Line Interface in support of Tiago Forteâ
 
     set -l target (pathForFlag $dest $base)
 
+    # Handle `para <flag> .`, which moves the dir at $PWD to the target P.A.R.A. dir.
+    if test "$paths" = "."
+        set paths $PWD
+
+        # In order to avoid a jarring context shift,
+        # land us in the directory we just moved.
+        set final_pwd (basename $PWD)
+    else
+        set final_pwd $target
+    end
+
     if test $pathCount -gt 0
         # Got something like `para b somefile.txt somedir`, so move `somefile.txt` and `somedir`.
+        echo Moving $paths ðŸ‘‰ (basename $target)
         mv $paths $target
-        cd $target
-        cd $final_pwd
-        return 0
-    else # Got something like `para b`
-        cd $target
     end
+    echo Your final destination: (basename $final_pwd)
+    cd $final_pwd
+    return 0
 end
