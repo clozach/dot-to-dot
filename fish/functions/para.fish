@@ -71,11 +71,23 @@ function para --description 'A Command Line Interface in support of Tiago Forte�
         end
     end
 
+    function emojiForFlag --argument-names destflag
+        set -l flags p a r b
+        set -l emoji 🗓 👨‍👩‍👧 ⛰ 🌊
+
+        if set -l index (contains -i -- $destflag $flags)
+            # 👆 `set` won't modify $status, so this succeeds if `contains` succeeds
+            echo $emoji[$index]
+        else
+            return 1
+        end
+    end
+
     if test "$dest" = "l"
         echo
         for f in p a r b
             echo "-----------------------------"
-            echo 🗓: (pathForFlag $f $base)
+            echo (emojiForFlag $f): (basename (pathForFlag $f $base))
             echo "-----------------------------"
             # -G: Colorizes output, -p: post-fixes dirs with `/`
             ls -Gp (pathForFlag $f $base)
