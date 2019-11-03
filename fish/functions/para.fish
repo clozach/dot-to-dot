@@ -1,4 +1,11 @@
-function para --description 'A Command Line Interface in support of Tiago Forte’s P.A.R.A. system. https://praxis.fortelabs.co/the-p-a-r-a-method-a-universal-system-for-organizing-digital-information'
+# See https://praxis.fortelabs.co/the-p-a-r-a-method-a-universal-system-for-organizing-digital-information
+
+function para --description 'A Command Line Interface in support of Tiago Forte’s P.A.R.A. system.'
+
+    # Note: Though the acronym's technically 'para', I substitute 'b' for
+    # the 2nd 'a' in order to be able to enter, for instance, the command;
+    # 'para b'. So type one of `p a r b`, but think, `p a r a`.
+
     set -l options 'h/help'
     argparse -n para --min-args=1 $options -- $argv
     or return
