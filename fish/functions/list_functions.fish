@@ -1,3 +1,3 @@
 function list_functions
-	functions | tr ", " "\n" | column
+    functions | column
 end
