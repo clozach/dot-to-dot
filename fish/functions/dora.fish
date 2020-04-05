@@ -1,6 +1,6 @@
 # Defined in /Users/c/.config/fish/functions/dora.fish @ line 2
 function dora --description 'A Command Line Interface in support of my D.O.R.A. system.'
-	set -l options 'h/help'
+	set -l options 'h/help' 'g/go'
     argparse -n dora $options -- $argv
     or return
 
@@ -132,6 +132,14 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
         mv $paths $target
     end
     echo Your final destination: (basename $final_pwd)
-    cd $final_pwd
+
+    if set -q _flag_go || [ $c = 1 ]
+        # Without the -g flag, moving projects DOES NOT trigger
+        # a directory change. E.g.,
+        #     dora d
+        #     dora o -g some_project
+        cd $final_pwd
+    end
+
     return 0
 end
