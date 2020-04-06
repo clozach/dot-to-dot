@@ -29,15 +29,56 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
     set -l c (count $argv)
 
     if set -q _flag_help || [ $c = 0 ]
-        echo "Usage: dora init
+        echo
+        echo USAGE: dora [COMMAND] [OPTIONS] [PATH...]
+        echo
+        echo (set_color -o blue)--------
+        echo COMMANDS
+        echo --------(set_color normal)
+        echo
+        echo • (set_color red)"init" (set_color brblack)"-> Example: `dora init`"(set_color normal)
+        echo
+        echo Creates the 4 D.O.R.A. folders in the current directory and sets DORA_ROOT to that directory.
+        echo
+        echo • (set_color red)"d | o | r | a"
+        echo
+        echo (set_color brblack)"Example 1: `dora r`"(set_color normal)
+        echo "   Changes the current directory to the `3-Research` directory"
+        echo
+        echo (set_color brblack)"Example 2: `dora d foo`"(set_color normal)
+        echo "   Moves `foo` to the 1-Due directory"
+        echo
+        echo • (set_color red)"l" (set_color brblack)"-> Example: dora l"(set_color normal)
+        echo
+        echo "   List all contents of the DOR directories. (Archives tend to become crowded, and are thus left out of the basic list command)"
+        echo
+        echo • (set_color red)"ll" (set_color brblack)"-> Example: dora ll"(set_color normal)
+        echo
+        echo "List all contents of (set_color -o)all 4(set_color normal) DORA directories."
+        echo
+        echo • (set_color red)"ll" (set_color brblack)"-> Example: dora ll"(set_color normal)
+        echo
+        echo "   List all contents of (set_color -o)all 4(set_color normal) DORA directories."
+        echo
+        echo • (set_color red)"root" (set_color brblack)"-> Example: `dora root`"(set_color normal)
+        echo
+        echo "   Sets the current directory as DORA_ROOT. Since `init` also does this, `dora root` is mainly just used for testing."
+        echo
+        echo (set_color -o blue)-------
+        echo OPTIONS
+        echo -------(set_color normal)
+        echo
+        echo • (set_color red)"-h/help" (set_color brblack)"-> Example: `dora -h`"(set_color normal)
+        echo
+        echo "   Display this help text"
+        echo
+        echo • (set_color red)"-g/go" (set_color brblack)"-> Example: `dora d --go foo`"(set_color normal)
+        echo
+        echo "   When used in conjunction with one or more PATHs, finishes by performing a `cd` into the target DORA directory. This example moves `foo` into 1-Due, then \"follows\" the moved item by changing the current directory to 1-Due."
+        echo
+        echo
 
-        Creates the 4 D.O.R.A. folders in the current directory and sets DORA_ROOT to that directory.
 
-        "
-        echo "Usage: dora root <path-to-dora-root>. Mainly used for testing."
-        echo "Usage: dora d|o|r|a [<path> ...<path>]
-
-        Performs a `cd` to the appropriate 'dora' destination, unless paths are provided, in which case these are moved to the target destination before changing into the target D.O.R.A. directory."
         return 0
     end
 
