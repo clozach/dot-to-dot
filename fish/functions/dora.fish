@@ -4,18 +4,18 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
     argparse -n dora $options -- $argv
     or return
 
-# (Fish shell screws with comments if they're anywhere near the
-#  `function` line. Pretend the following lines are at the top
-#   of this file. 🙄)
-#
-# D.O.R.A. stands for
-#
-#   - Due: anything with a defined end state. What Tiago calls Projects
-#   - Ongoing: things of indeterminate length. What Tiago calls Areas
-#   - Research: spikes, tutorials, etc. What Tiago calls Resources
-#   - Archives: stuff I may refer to again someday…maybe
-#
-# See https://praxis.fortelabs.co/the-p-a-r-a-method-a-universal-system-for-organizing-digital-information
+    # (Fish shell screws with comments if they're anywhere near the
+    #  `function` line. Pretend the following lines are at the top
+    #   of this file. 🙄)
+    #
+    # D.O.R.A. stands for
+    #
+    #   - Due: anything with a defined end state. What Tiago calls Projects
+    #   - Ongoing: things of indeterminate length. What Tiago calls Areas
+    #   - Research: spikes, tutorials, etc. What Tiago calls Resources
+    #   - Archives: stuff I may refer to again someday…maybe
+    #
+    # See https://praxis.fortelabs.co/the-p-a-r-a-method-a-universal-system-for-organizing-digital-information
 
     set -l p1 1-Due
     set -l a2 2-Ongoing
