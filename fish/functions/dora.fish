@@ -101,6 +101,20 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
 
     if test "$dest" = "l"
         echo
+        for f in d o r
+            echo "-----------------------------"
+            echo (emojiForFlag $f): (basename (pathForFlag $f $base))
+            echo "-----------------------------"
+            # -G: Colorizes output, -p: post-fixes dirs with `/`
+            ls -Gp (pathForFlag $f $base)
+            echo
+        end
+        echo
+        return 0
+    end
+
+    if test "$dest" = "ll"
+        echo
         for f in d o r a
             echo "-----------------------------"
             echo (emojiForFlag $f): (basename (pathForFlag $f $base))
