@@ -56,13 +56,17 @@ set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 
-# Set aliases for faster `para` interactions
-alias p=para
-alias pp="p p"
-alias pa="p a"
-alias pr="p r"
-alias pb="p b"
-alias pl="p l"
+# Set aliases for faster `dora` interactions
+alias d dora
+alias d1 dd
+alias d2 do
+alias d3 dr
+alias d4 da
+alias da 'd a'
+alias dd 'd d'
+alias dl 'd l'
+alias do 'd o'
+alias dr 'd r'
 
 # ANTLR4 SUPPORT
 alias antlr4='java -jar /usr/local/lib/antlr-4.7.1-complete.jar'
