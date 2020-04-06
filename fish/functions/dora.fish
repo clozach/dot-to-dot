@@ -140,14 +140,23 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
         end
     end
 
+    function header --argument-names destflag baseurl
+        set -l emoji (emojiForFlag $destflag)
+        set -l dirname (basename (pathForFlag $destflag $baseurl))
+        set -l l (string length $dirname)
+        set -l dnl (math $l + 8) # Directory Name Length
+
+        echo (repstr - $dnl)
+        echo "  "$emoji: $dirname
+        echo (repstr - $dnl)
+    end
+
     if test "$dest" = "l"
         echo
         for f in d o r
-            echo "-----------------------------"
-            echo (emojiForFlag $f): (basename (pathForFlag $f $base))
-            echo "-----------------------------"
+            header $f $base
             # -G: Colorizes output, -p: post-fixes dirs with `/`
-            ls -Gp (pathForFlag $f $base)
+            ls -Gpc (pathForFlag $f $base)
             echo
         end
         echo
@@ -157,11 +166,9 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
     if test "$dest" = "ll"
         echo
         for f in d o r a
-            echo "-----------------------------"
-            echo (emojiForFlag $f): (basename (pathForFlag $f $base))
-            echo "-----------------------------"
+            header $f $base
             # -G: Colorizes output, -p: post-fixes dirs with `/`
-            ls -Gp (pathForFlag $f $base)
+            ls -Gpc (pathForFlag $f $base)
             echo
         end
         echo
@@ -186,7 +193,6 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
         echo Moving $paths 👉 (basename $target)
         mv $paths $target
     end
-    echo Your final destination: (basename $final_pwd)
 
     if set -q _flag_go || [ $c = 1 ]
         # Without the -g flag, moving projects DOES NOT trigger
