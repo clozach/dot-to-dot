@@ -1,6 +1,6 @@
 # Defined in /Users/c/.config/fish/functions/dora.fish @ line 2
 function dora --description 'A Command Line Interface in support of my D.O.R.A. system.'
-	set -l options 'h/help' 'g/go'
+    set -l options 'h/help' 'g/go'
     argparse -n dora $options -- $argv
     or return
 
