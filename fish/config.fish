@@ -68,6 +68,9 @@ alias dl 'd l'
 alias do 'd o'
 alias dr 'd r'
 
+# Set aliases for faster `git` interactions
+alias gs "git status"
+
 # ANTLR4 SUPPORT
 alias antlr4='java -jar /usr/local/lib/antlr-4.7.1-complete.jar'
 alias antlr=antlr4
