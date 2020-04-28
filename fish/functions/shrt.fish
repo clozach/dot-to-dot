@@ -1,4 +1,4 @@
-# Defined in /var/folders/7t/qn5djvd12cbf42936rdxpct40000gn/T//fish.fgN2NB/shrt.fish @ line 2
+# Defined in /var/folders/7t/qn5djvd12cbf42936rdxpct40000gn/T//fish.02puHp/shrt.fish @ line 2
 function shrt --description 'Shorten a URL'
 	set -l options 'h/help'
 
@@ -23,5 +23,5 @@ function shrt --description 'Shorten a URL'
     set argv $user_input
   end
 
-  node ~/git/eqg.me/node_modules/.bin/netlify-shortener $argv
+  node ~/Documents/2-Ongoing/eqg.me/node_modules/.bin/netlify-shortener $argv
 end
