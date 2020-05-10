@@ -56,6 +56,15 @@ set PATH $HOME/.rbenv/bin $PATH
 set PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 
+# Edit this file
+alias fishc 'vim ~/.config/fish/config.fish'
+
+# Serve the current directory with hot reloading
+alias serve 'browser-sync start -s -f . --no-notify --host (ipconfig getifaddr en0) --port 9000'
+                            # -s ⇒ local server
+                            # -f ⇒ specify files
+                            # --no-notify ⇒ Don't show the little "connected" badge
+
 # Set aliases for faster `dora` interactions
 alias d dora
 alias d1 dd
@@ -88,8 +97,4 @@ alias emacs="env HOME=$HOME/spacemacs emacs"
 # (from following instructions after `rbenv init fish`:
 #  https://github.com/rbenv/rbenv/issues/869)
 status --is-interactive; and source (rbenv init -|psub)
-
-# Start new sessions in 1-Due
-# https://superuser.com/questions/193513/how-can-i-change-the-startup-directory-of-my-terminal-on-os-x
-d d
 
