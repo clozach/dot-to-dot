@@ -42,7 +42,7 @@ function work --description 'Quick launch of coding projects'
 
     if set -q _flag_init
         if [ ! -e $start_script ]
-            touch $start_script
+            echo "#!/usr/local/bin/fish" >$start_script
         end
 
         if [ ! -x $start_script ]
