@@ -65,6 +65,10 @@ alias serve 'browser-sync start -s -f . --no-notify --host (ipconfig getifaddr e
                             # -f ⇒ specify files
                             # --no-notify ⇒ Don't show the little "connected" badge
 
+# Terminal Navigation
+alias cdu 'cd ..'
+alias cdh 'cd ~'
+
 # Set aliases for faster `dora` interactions
 alias d dora
 alias d1 dd
