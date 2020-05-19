@@ -2,7 +2,7 @@
 function work --description 'Quick launch of coding projects'
 
     # Set local `options` with a default of h/help to support -h and --help
-    set -l options 'h/help' 'i/init'
+    set -l options 'h/help' 'i/init' 'c/chaos'
 
     # Parse incoming args into `options`
     # E.g., `argparse -n myfunc $options -- $argv
@@ -27,6 +27,9 @@ function work --description 'Quick launch of coding projects'
 					work --init   # Opens the `work.eqg` file so you can add your startup instrutions.
 					              # Currently idiosyncratic: opens in VS Code.
 					work          # Opens the dev environment and rurns the script.
+                    work --chaos  # In order to train me to focus on one thing at a time, `work` uses
+                                  # my QuitAll.app Automator workflow to create a clean work space.
+                                  # The `--chaos` flag skips this step.
 				"
 
         return 0
@@ -51,6 +54,11 @@ function work --description 'Quick launch of coding projects'
 
         code $start_script
     else
+        if ! set -q _flag_chaos
+            open ~/Library/Mobile\ Documents/com\~apple\~Automator/Documents/QuitAll.app
+            sleep 3
+        end
+
         code $loc
         stree $loc
 
