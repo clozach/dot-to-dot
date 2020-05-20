@@ -59,9 +59,6 @@ function work --description 'Quick launch of coding projects'
             sleep 3
         end
 
-        code $loc
-        stree $loc
-
         if [ -e $start_script ]
             echo Launching $start_script
             $start_script
