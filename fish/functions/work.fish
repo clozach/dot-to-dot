@@ -14,23 +14,29 @@ function work --description 'Quick launch of coding projects'
     #   -q == "query", i.e., check for this value
     #   _flag_ is a special prefix. Below tests for either -h or --help
     if set -q _flag_help
-        echo "The work does 3 simple things:
-				  1. Open the specified location (or current dir) in VS Code.
-				  2. Open the specified location (or current dir) in SourceTree.
-				  3. Runs the file `work.eqg` in that same directory, if there is one.
-					
-				Oh. And it can create a `work.eqg` file and make it executable, if you want.
+        echo "The `work` function helps me focus as I switch context from one
+project to another. It does this with two basic strategies:
 
-				Example:
-					
-					cd ~/projects/newproj
-					work --init   # Opens the `work.eqg` file so you can add your startup instrutions.
-					              # Currently idiosyncratic: opens in VS Code.
-					work          # Opens the dev environment and rurns the script.
-                    work --chaos  # In order to train me to focus on one thing at a time, `work` uses
-                                  # my QuitAll.app Automator workflow to create a clean work space.
-                                  # The `--chaos` flag skips this step.
-				"
+    1. Quitting (almost) all open applications and closing Chrome browser tabs
+    2. Running a file called `work.eqg`, if one can be found in the current
+       working directory (default), or, if provided, in a directory given as
+       an argument.
+    
+There's also an `--init` option to make it trivial to create a new, `work.eqg`
+script in the current working directory.
+
+Example workflow:
+    
+    cd ~/projects/newproj
+    work --init   # Creates and opens the `work.eqg` file so you can add
+                  # your startup instrutions. Currently idiosyncratic: opens
+                  # in VS Code.
+    work          # Quits open applications, clears browser tabs, and
+                  # runs the `work.eqg` script.
+    work --chaos  # In order to train me to focus on one thing at a time, `work` uses
+                  # my QuitAll.app Automator workflow to create a clean
+                  # work space. The `--chaos` flag skips this step.
+"
 
         return 0
     end
