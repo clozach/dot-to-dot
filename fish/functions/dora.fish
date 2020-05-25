@@ -1,6 +1,6 @@
 # Defined in /Users/c/.config/fish/functions/dora.fish @ line 2
 function dora --description 'A Command Line Interface in support of my D.O.R.A. system.'
-    set -l options 'h/help' 'g/go'
+    set -l options 'h/help' 'c/cd'
     argparse -n dora $options -- $argv
     or return
 
@@ -68,7 +68,7 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
         echo
         echo "   Display this help text"
         echo
-        echo • (set_color yellow)"-g/go" (set_color brblack)"-> Example: "(set_color blue)"`dora d --go foo`"(set_color normal)
+        echo • (set_color yellow)"-c/cd" (set_color brblack)"-> Example: "(set_color blue)"`dora d --cd foo`"(set_color normal)
         echo
         echo "   When used in conjunction with one or more PATHs, finishes by performing a `cd` into the target DORA directory. This example moves `foo` into 1-Due, then \"follows\" the moved item by changing the current directory to 1-Due."
         echo
@@ -190,11 +190,11 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
         mv $paths $target
     end
 
-    if set -q _flag_go || [ $c = 1 ]
-        # Without the -g flag, moving projects DOES NOT trigger
+    if set -q _flag_cd || [ $c = 1 ]
+        # Without the -c flag, moving projects DOES NOT trigger
         # a directory change. E.g.,
         #     dora d
-        #     dora o -g some_project
+        #     dora o -c some_project
         cd $final_pwd
     end
 
