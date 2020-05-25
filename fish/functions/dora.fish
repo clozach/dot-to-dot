@@ -187,7 +187,7 @@ function dora --description 'A Command Line Interface in support of my D.O.R.A. 
     if test $pathCount -gt 0
         # Got something like `dora b somefile.txt somedir`, so move `somefile.txt` and `somedir`.
         echo Moving $paths 👉 (basename $target)
-        mv $paths $target
+        mv -i $paths $target
     end
 
     if set -q _flag_cd || [ $c = 1 ]
