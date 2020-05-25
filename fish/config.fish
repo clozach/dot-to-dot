@@ -81,6 +81,9 @@ alias dl 'd l'
 alias do 'd o'
 alias dr 'd r'
 
+# QuickLook
+alias ql "qlmanage 2> /dev/null > /dev/null -p"
+
 # Set aliases for faster `git` interactions
 alias gs "git status"
 
